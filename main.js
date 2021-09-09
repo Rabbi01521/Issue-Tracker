@@ -28,6 +28,7 @@ const closeIssue = (id) => {
   console.log(issues);
   const currentIssue = issues.find((issue) => issue.id == id);
   currentIssue.status = "Closed";
+  // strike is string method function that make the description
   currentIssue.description = currentIssue.description.strike();
   localStorage.setItem("issues", JSON.stringify(issues));
   fetchIssues();
