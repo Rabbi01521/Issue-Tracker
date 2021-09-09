@@ -27,8 +27,8 @@ const closeIssue = (id) => {
   const issues = JSON.parse(localStorage.getItem("issues"));
   console.log(issues);
   const currentIssue = issues.find((issue) => issue.id == id);
-  console.log(issues);
   currentIssue.status = "Closed";
+  currentIssue.description = currentIssue.description.strike();
   localStorage.setItem("issues", JSON.stringify(issues));
   fetchIssues();
 };
@@ -36,7 +36,6 @@ const closeIssue = (id) => {
 const deleteIssue = (id) => {
   console.log(id);
   const issues = JSON.parse(localStorage.getItem("issues"));
-  console.log(issues[0]);
   const remainingIssues = issues.filter((issue) => issue.id != id);
   location.reload();
   localStorage.setItem("issues", JSON.stringify(remainingIssues));
